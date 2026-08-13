@@ -1,7 +1,7 @@
 function NeedleCount({ needleCount }) {
   return (
-    <div className="needle-count">
-      <h2>Needle Count</h2>
+    <div className="counter-content">
+      <h2>Needle</h2>
       <p>{needleCount}</p>
     </div>
   );
