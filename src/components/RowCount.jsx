@@ -1,7 +1,7 @@
 function RowCount({ rowCount }) {
   return (
-    <div className="row-count">
-      <h2>row Count</h2>
+    <div className="counter-content">
+      <h2>Row</h2>
       <p>{rowCount}</p>
     </div>
   );

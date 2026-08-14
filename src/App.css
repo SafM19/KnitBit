@@ -4,193 +4,247 @@
 
 body {
   margin: 0;
-  background: #d9d9d9;
-  color: #000000;
+  background-color: #202020;
   font-family: Georgia, "Times New Roman", serif;
+  overflow: hidden;
 }
 
 .app {
-  min-height: 100vh;
-  padding: 50px 40px 60px;
-}
-
-.app h1 {
-  margin: 0 0 60px;
-  text-align: center;
-
-  font-size: clamp(64px, 7vw, 96px);
-  font-weight: 400;
-  line-height: 1;
-
-  color: #4387b8;
-}
-
-.dashboard {
-  width: min(100%, 1050px);
-  margin: 0 auto;
-}
-
-.dpn-card {
-  width: 100%;
-  height: 215px;
+  height: 100dvh;
+  margin: 6px;
+  padding: 12px 5% 20px;
+  background-color: #d9d9d9;
 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  border: 1.5px solid #000;
-  border-radius: 20px;
-
-  background: #d9d9d9;
 }
 
-.dpn-card h2,
-.counter-card h2 {
-  margin: 0;
+/* -------------------- */
+/* Header */
+/* -------------------- */
 
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 600;
+.header {
+  text-align: center;
+  color: #3d87bc;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 5rem);
   line-height: 1;
 }
 
-.large-number-input {
-  width: 120px;
-  margin-top: 35px;
+.header h2 {
+  margin: 8px 0 0;
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+}
 
+/* -------------------- */
+/* Instructions */
+/* -------------------- */
+
+.instructions {
+  width: 60%;
+  max-width: 850px;
+  margin: 25px auto 20px;
+
+  color: #3d87bc;
+
+  font-size: clamp(1rem, 1.5vw, 1.4rem);
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------- */
+/* Number of DPNs */
+/* -------------------- */
+
+.dpn-selector {
+  width: 100%;
+  height: 28vh;
+  min-height: 180px;
+  max-height: 280px;
+
+  border: 2px solid #111;
+  border-radius: 28px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.number-needles h2 {
+  margin: 0 0 20px;
+
+  font-size: clamp(2rem, 3.5vw, 3rem);
+}
+
+.number-needles select {
   border: none;
-  border-bottom: 4px solid #c5d7e3;
-  outline: none;
+  border-bottom: 5px solid #bdced8;
 
   background: transparent;
 
-  text-align: center;
+  color: #79a8c7;
 
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 48px;
-  color: #79a9ca;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+
+  text-align: center;
+
+  cursor: pointer;
 }
 
-.large-number-input:focus {
-  border-bottom-color: #4387b8;
+.number-needles select:focus {
+  outline: none;
 }
 
-.counter-row {
+/* -------------------- */
+/* Counter Cards */
+/* -------------------- */
+
+.counter-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
 
-  margin-top: 30px;
+  gap: 3vw;
+
+  margin-top: 25px;
+
+  flex: 1;
+  min-height: 0;
 }
 
 .counter-card {
-  position: relative;
+  min-height: 0;
 
-  min-height: 215px;
+  border: 2px solid #111;
+  border-radius: 28px;
 
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  border: 1.5px solid #000;
-  border-radius: 20px;
-
-  background: #d9d9d9;
-}
-
-.counter-card h2 {
-  margin-bottom: 40px;
-}
-
-.number-input {
-  width: 120px;
-
-  border: none;
-  border-bottom: 4px solid #c5d7e3;
-  outline: none;
-
-  background: transparent;
+  align-items: center;
 
   text-align: center;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 48px;
-  color: #79a9ca;
 }
 
-.number-input:focus {
-  border-bottom-color: #4387b8;
+.counter-content {
+  width: 100%;
 }
 
-/* Remove browser number arrows */
+.counter-content h2 {
+  margin: 0 0 25px;
 
-.number-input::-webkit-inner-spin-button,
-.number-input::-webkit-outer-spin-button,
-.large-number-input::-webkit-inner-spin-button,
-.large-number-input::-webkit-outer-spin-button {
-  opacity: 0;
+  font-size: clamp(2rem, 3.5vw, 3rem);
 }
 
-/* Target celebration */
+.counter-content p {
+  display: inline-block;
 
-.target-reached {
-  border-color: #4387b8;
-  background: #d1e4ef;
+  min-width: 120px;
+
+  margin: 0;
+  padding-bottom: 4px;
+
+  border-bottom: 5px solid #bdced8;
+
+  color: #79a8c7;
+
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
 }
 
-.celebration {
-  position: absolute;
-  bottom: 15px;
+/* -------------------- */
+/* Smaller screens */
+/* -------------------- */
 
-  font-family: sans-serif;
-  font-size: 18px;
-  color: #4387b8;
-
-  animation: celebrate 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes celebrate {
-  from {
-    transform: scale(1);
+@media (max-width: 800px) {
+  body {
+    overflow: auto;
   }
 
-  to {
-    transform: scale(1.15);
-  }
-}
-
-/* Instructions */
-
-.instructions {
-  margin-top: 30px;
-  text-align: center;
-
-  font-family: sans-serif;
-  font-size: 16px;
-  color: #555;
-}
-
-/* Mobile */
-
-@media (max-width: 700px) {
   .app {
-    padding: 30px 20px;
+    height: auto;
+    min-height: 100dvh;
   }
 
-  .app h1 {
-    margin-bottom: 35px;
+  .instructions {
+    width: 90%;
   }
 
-  .counter-row {
+  .counter-grid {
     grid-template-columns: 1fr;
   }
 
-  .dpn-card {
-    height: 190px;
-  }
-
   .counter-card {
-    min-height: 190px;
+    min-height: 200px;
   }
+}
+
+.target-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.target-controls button {
+  border: none;
+  padding: 0;
+
+  background: transparent;
+
+  color: #79a8c7;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+.target-controls button:hover {
+  color: #3d87bc;
+}
+
+.target-controls button:active {
+  transform: scale(0.9);
+}
+
+.target-controls input {
+  width: 140px;
+
+  margin: 0;
+  padding: 0 0 4px;
+
+  border: none;
+  border-bottom: 5px solid #bdced8;
+
+  background: transparent;
+
+  color: #79a8c7;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1;
+
+  text-align: center;
+}
+
+.target-controls input:focus {
+  outline: none;
+}
+
+.target-controls input::-webkit-inner-spin-button,
+.target-controls input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.target-controls input:focus {
+  outline: none;
 }
