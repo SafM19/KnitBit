@@ -1,29 +1,36 @@
-function TargetRow({ targetRow, setTargetRow }) {
+function TargetRow({ targetRow, setProject }) {
   function increaseTarget() {
-    setTargetRow((currentTarget) =>
-      Math.min(Number(currentTarget) + 1, 100)
-    );
+    setProject((currentProject) => ({
+      ...currentProject,
+      targetRow: Math.min(currentProject.targetRow + 1, 100),
+    }));
   }
 
   function decreaseTarget() {
-    setTargetRow((currentTarget) =>
-      Math.max(Number(currentTarget) - 1, 0)
-    );
+    setProject((currentProject) => ({
+      ...currentProject,
+      targetRow: Math.max(currentProject.targetRow - 1, 0),
+    }));
   }
 
   function handleTargetChange(event) {
     const value = event.target.value;
 
-    // Allow the input to temporarily be empty
     if (value === "") {
-      setTargetRow("");
+      setProject((currentProject) => ({
+        ...currentProject,
+        targetRow: "",
+      }));
       return;
     }
 
     const numberValue = Number(value);
 
     if (numberValue >= 0 && numberValue <= 100) {
-      setTargetRow(numberValue);
+      setProject((currentProject) => ({
+        ...currentProject,
+        targetRow: numberValue,
+      }));
     }
   }
 
@@ -34,9 +41,11 @@ function TargetRow({ targetRow, setTargetRow }) {
   }
 
   function handleBlur() {
-    // If the user leaves it empty, reset it to 0
     if (targetRow === "") {
-      setTargetRow(0);
+      setProject((currentProject) => ({
+        ...currentProject,
+        targetRow: 0,
+      }));
     }
   }
 

@@ -7,16 +7,29 @@ import RowCount from "./components/RowCount";
 import NumberNeedlesUsed from "./components/NumberNeedlesUsed";
 import TargetRow from "./components/TargetRow";
 import Instructions from "./components/Instructions";
+import Name from './components/ProjectName';
 
 import "./App.css";
 
 
 
 function App() {
-  const [needleCount, setNeedleCount] = useState(0);
-  const [rowCount, setRowCount] = useState(0);
-  const [numberNeedlesUsed, setNumberNeedlesUsed] = useState(0);
-  const [targetRow, setTargetRow] = useState(0);
+  const [projects, setProjects] = useState([
+    {
+      id: 1,
+      name: "My Knitting Project",
+      needleCount: 0,
+      rowCount: 0,
+      numberNeedlesUsed: 0,
+      targetRow: 0,
+    },
+  ]);
+
+  const [activeProjectId, setActiveProjectId] = useState(1);
+
+  const project = projects.find(
+    (project) => project.id === activeProjectId
+  );
 
   const { reward } = useReward('achievement', 'stars', {
     particleCount: 35,
@@ -35,17 +48,23 @@ function App() {
 
       event.preventDefault();
 
-      if (numberNeedlesUsed === 0) {
+      if (project.numberNeedlesUsed === 0) {
         return;
       }
 
-      const lastNeedle = numberNeedlesUsed - 2;
+      const lastNeedle = project.numberNeedlesUsed - 2;
 
-      if (needleCount === lastNeedle) {
-        setNeedleCount(0);
-        setRowCount((currentRow) => currentRow + 1);
+      if (project.needleCount === lastNeedle) {
+        setProject((currentProject) => ({
+          ...currentProject,
+          needleCount: 0,
+          rowCount: currentProject.rowCount + 1,
+        }));
       } else {
-        setNeedleCount((currentNeedle) => currentNeedle + 1);
+        setProject((currentProject) => ({
+          ...currentProject,
+          needleCount: currentProject.needleCount + 1,
+        }));
       }
     }
 
@@ -54,13 +73,13 @@ function App() {
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [numberNeedlesUsed, needleCount]);
+  }, [project.numberNeedlesUsed, project.needleCount]);
 
   useEffect(() => {
-    if (targetRow > 0 && rowCount === targetRow) {
+    if (project.targetRow > 0 && project.rowCount === project.targetRow) {
       reward();
     }
-  }, [rowCount, targetRow]);
+  }, [project.rowCount, project.targetRow]);
 
   return (
     <main className="app">
@@ -70,29 +89,32 @@ function App() {
       </header>
 
       <Instructions />
+      <Name 
+        name={project.name}
+      />
 
       <div id="achievement"></div>
      
       <section className="dpn-selector">
         <NumberNeedlesUsed
-          numberNeedlesUsed={numberNeedlesUsed}
-          setNumberNeedlesUsed={setNumberNeedlesUsed}
+          numberNeedlesUsed={project.numberNeedlesUsed}
+          setProject={setProject}
         />
       </section>
 
       <section className="counter-grid">
         <div className="counter-card">
-          <NeedleCount needleCount={needleCount} />
+          <NeedleCount needleCount={project.needleCount} />
         </div>
 
         <div className="counter-card">
-          <RowCount rowCount={rowCount} />
+          <RowCount rowCount={project.rowCount} />
         </div>
 
         <div className="counter-card">
           <TargetRow
-            targetRow={targetRow}
-            setTargetRow={setTargetRow}
+            targetRow={project.targetRow}
+            setProject={setProject}
           />
         </div>
       </section>
