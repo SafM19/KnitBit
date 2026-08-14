@@ -39,7 +39,9 @@ function App() {
         return;
       }
 
-      if (needleCount === numberNeedlesUsed - 1) {
+      const lastNeedle = numberNeedlesUsed - 2;
+
+      if (needleCount === lastNeedle) {
         setNeedleCount(0);
         setRowCount((currentRow) => currentRow + 1);
       } else {

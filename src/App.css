@@ -215,16 +215,36 @@ body {
   transform: scale(0.9);
 }
 
-.target-controls p {
-  min-width: 120px;
+.target-controls input {
+  width: 140px;
 
   margin: 0;
-  padding-bottom: 4px;
+  padding: 0 0 4px;
 
+  border: none;
   border-bottom: 5px solid #bdced8;
+
+  background: transparent;
 
   color: #79a8c7;
 
+  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3rem, 5vw, 4.5rem);
   line-height: 1;
+
+  text-align: center;
+}
+
+.target-controls input:focus {
+  outline: none;
+}
+
+.target-controls input::-webkit-inner-spin-button,
+.target-controls input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.target-controls input:focus {
+  outline: none;
 }
