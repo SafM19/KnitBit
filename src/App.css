@@ -1,250 +1,313 @@
-* {
+.main-page {
+  min-height: 100vh;
   box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  background-color: #202020;
-  font-family: Georgia, "Times New Roman", serif;
-  overflow: hidden;
-}
-
-.app {
-  height: 100dvh;
-  margin: 6px;
-  padding: 12px 5% 20px;
-  background-color: #d9d9d9;
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  background: #ffffff;
 }
 
-/* -------------------- */
-/* Header */
-/* -------------------- */
-
-.header {
+.main-header {
   text-align: center;
-  color: #3d87bc;
 }
 
-.header h1 {
+.main-header h1 {
   margin: 0;
-  font-size: clamp(3rem, 6vw, 5rem);
-  line-height: 1;
+
+  color: #3185bd;
+
+  font-family: "Comic Sans MS", cursive;
+  font-size: 3rem;
+  font-weight: 400;
 }
 
-.header h2 {
-  margin: 8px 0 0;
-  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+.main-header h2 {
+  font-size: 80px;
+  font-family: "Just Another Hand", cursive;
+  color: #8c5629;
+  font-weight: 400;
+  letter-spacing: 0%;
 }
 
-/* -------------------- */
-/* Instructions */
-/* -------------------- */
-
-.instructions {
-  width: 60%;
-  max-width: 850px;
-  margin: 25px auto 20px;
-
-  color: #3d87bc;
-
-  font-size: clamp(1rem, 1.5vw, 1.4rem);
-  line-height: 1.2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* -------------------- */
-/* Number of DPNs */
-/* -------------------- */
-
-.dpn-selector {
-  width: 100%;
-  height: 28vh;
-  min-height: 180px;
-  max-height: 280px;
-
-  border: 2px solid #111;
-  border-radius: 28px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-}
-
-.number-needles h2 {
-  margin: 0 0 20px;
-
-  font-size: clamp(2rem, 3.5vw, 3rem);
-}
-
-.number-needles select {
+.new-project-button {
   border: none;
-  border-bottom: 5px solid #bdced8;
-
-  background: transparent;
-
-  color: #79a8c7;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-
-  text-align: center;
 
   cursor: pointer;
 }
 
-.number-needles select:focus {
+.new-project-button:hover {
+  opacity: 0.75;
+}
+
+.saved-projects-button {
+  border: none;
+  background: transparent;
+
+  color: #3185bd;
+
+  font-family: "Comic Sans MS", cursive;
+  font-size: 2.5rem;
+
+  cursor: pointer;
+}
+
+.saved-project-button:hover {
+  opacity: 0.75;
+}
+
+
+
+/* =========================
+   NEW PROJECT MODAL
+   ========================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  z-index: 9999;
+}
+
+.new-project-modal {
+  position: relative;
+  z-index: 10000;
+
+  width: min(880px, calc(100vw - 40px));
+  height: min(1040px, calc(100vh - 40px));
+
+  box-sizing: border-box;
+
+  background: #d5c0bc;
+  border-radius: 30px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   PROJECT NAME
+   ========================= */
+
+.project-name-input {
+  position: absolute;
+
+  top: 30%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 70%;
+  height: 145px;
+
+  box-sizing: border-box;
+
+  border: none;
+  border-radius: 25px;
+
+  background: #c49670;
+
+  color: #a9662c;
+
+  font-family: "Just Another Hand", cursive;
+  font-size: 68px;
+
+  text-align: center;
+
   outline: none;
 }
 
-/* -------------------- */
-/* Counter Cards */
-/* -------------------- */
-
-.counter-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 3vw;
-
-  margin-top: 25px;
-
-  flex: 1;
-  min-height: 0;
+.project-name-input::placeholder {
+  color: #a9662c;
+  opacity: 1;
 }
 
-.counter-card {
-  min-height: 0;
 
-  border: 2px solid #111;
-  border-radius: 28px;
+/* =========================
+   DPN / REGULAR BUTTONS
+   ========================= */
+
+.counter-type-buttons {
+  position: absolute;
+
+  top: 68%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  gap: 100px;
+}
+
+.counter-type-buttons button {
+  width: 260px;
+  height: 180px;
+
+  border: none;
+  border-radius: 25px;
+
+  background: #c49670;
+
+  color: #a9662c;
+
+  font-family: "Just Another Hand", cursive;
+  font-size: 65px;
+
+  cursor: pointer;
+}
+
+.counter-type-buttons button:hover {
+  opacity: 0.8;
+}
+
+.counter-type-buttons button.selected {
+  background: #a9662c;
+  color: #d5c0bc;
+}
+
+
+/* =========================
+   CANCEL / CREATE
+   ========================= */
+
+.new-project-modal .modal-actions {
+  position: absolute;
+
+  right: 60px;
+  bottom: 30px;
+
+  width: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 55px;
+
+  margin: 0;
+}
+
+.new-project-modal .modal-actions button {
+  border: none;
+  background: transparent;
+
+  color: #955820;
+
+  font-family: "Just Another Hand", cursive;
+  font-size: 55px;
+
+  cursor: pointer;
+}
+
+.new-project-modal .modal-actions button:hover {
+  opacity: 0.7;
+}
+
+.saved-projects-modal {
+  width: min(420px, 80vw);
+  min-height: 350px;
+
+  box-sizing: border-box;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #d5c0bc;
+  border-radius: 14px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.saved-projects-modal h2 {
+  margin: 0 0 30px;
+
+  color: #9a5d28;
+
+  font-family: "Comic Sans MS", cursive;
+  font-size: 2rem;
+  font-weight: 400;
   text-align: center;
 }
 
-.counter-content {
-  width: 100%;
-}
-
-.counter-content h2 {
-  margin: 0 0 25px;
-
-  font-size: clamp(2rem, 3.5vw, 3rem);
-}
-
-.counter-content p {
-  display: inline-block;
-
-  min-width: 120px;
-
-  margin: 0;
-  padding-bottom: 4px;
-
-  border-bottom: 5px solid #bdced8;
-
-  color: #79a8c7;
-
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1;
-}
-
-/* -------------------- */
-/* Smaller screens */
-/* -------------------- */
-
-@media (max-width: 800px) {
-  body {
-    overflow: auto;
-  }
-
-  .app {
-    height: auto;
-    min-height: 100dvh;
-  }
-
-  .instructions {
-    width: 90%;
-  }
-
-  .counter-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .counter-card {
-    min-height: 200px;
-  }
-}
-
-.target-controls {
+.saved-project-list {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.target-controls button {
+.saved-project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 15px 20px;
+
   border: none;
+  border-radius: 8px;
+
+  background: #c49670;
+
+  color: #9a5d28;
+
+  font-family: "Comic Sans MS", cursive;
+  font-size: 1.2rem;
+
+  cursor: pointer;
+}
+
+.saved-project:hover {
+  opacity: 0.8;
+}
+
+.saved-project span:last-child {
+  font-size: 0.9rem;
+}
+
+.saved-projects-modal .modal-actions {
+  margin-top: auto;
+}
+
+.new-project-button, .saved-projects-button {
   padding: 0;
-
+  border: none;
   background: transparent;
-
-  color: #79a8c7;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 1.5rem;
-  line-height: 1;
 
   cursor: pointer;
 }
 
-.target-controls button:hover {
-  color: #3d87bc;
+.new-project-button img{
+  display: block;
+  width: min(450px, 80vw);
+  height: auto;
 }
 
-.target-controls button:active {
-  transform: scale(0.9);
+.new-project-button:hover {
+  opacity: 0.8;
 }
 
-.target-controls input {
-  width: 140px;
 
-  margin: 0;
-  padding: 0 0 4px;
-
-  border: none;
-  border-bottom: 5px solid #bdced8;
-
-  background: transparent;
-
-  color: #79a8c7;
-
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 5vw, 4.5rem);
-  line-height: 1;
-
-  text-align: center;
+.saved-projects-button img{
+  display: block;
+  width: min(475px, 80vw);
+  height: auto;
 }
 
-.target-controls input:focus {
-  outline: none;
-}
 
-.target-controls input::-webkit-inner-spin-button,
-.target-controls input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.target-controls input:focus {
-  outline: none;
+.new-project-button,
+.saved-projects-button {
+  position: relative;
+  z-index: 1;
 }
