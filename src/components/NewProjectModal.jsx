@@ -1,12 +1,27 @@
 import { useState } from "react";
 
-function NewProjectModal({ onClose }) {
+function NewProjectModal({ onClose, onCreate }) {
   const [projectName, setProjectName] = useState("");
   const [counterType, setCounterType] = useState("");
 
+  function handleChange(event) {
+    setCounterType(event.target.value);
+  }
+
   function handleCreate() {
-    console.log("Project Name:", projectName);
-    console.log("Counter Type:", counterType);
+    if (!projectName.trim() || !counterType) {
+      return;
+    }
+
+    const newProject = {
+      id: Date.now(),
+      name: projectName,
+      counterType: counterType,
+      currentRow: 0,
+    };
+
+    onCreate(newProject);
+    onClose();
   }
 
   return (
@@ -21,20 +36,18 @@ function NewProjectModal({ onClose }) {
           onChange={(event) => setProjectName(event.target.value)}
         />
 
-        <div className="counter-type-buttons">
-          <button
-            className={counterType === "dpn" ? "selected" : ""}
-            onClick={() => setCounterType("dpn")}
+        <div className="counter-type">
+          <select
+            value={counterType}
+            onChange={handleChange}
           >
-            DPNs
-          </button>
+            <option value="" disabled>
+              Project Type
+            </option>
 
-          <button
-            className={counterType === "regular" ? "selected" : ""}
-            onClick={() => setCounterType("regular")}
-          >
-            Regular
-          </button>
+            <option value="dpn">DPNs</option>
+            <option value="regular">Regular</option>
+          </select>
         </div>
 
         <div className="modal-actions">

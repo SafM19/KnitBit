@@ -1,0 +1,55 @@
+.dpn-page {
+  background: #FBEDE4;
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dpn-title {
+  font-family: 'Shrikhand', regular;
+  font-size: 48px;
+  color: #3185bd;
+  margin-bottom: 20px;
+}
+
+.dpn-select-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Shrikhand', regular;
+  font-size: 20px;
+  color: #3185bd;
+  margin-bottom: 40px;
+}
+
+.dpn-grid {
+  display: flex;
+  gap: 40px;
+}
+
+.dpn-box {
+  background: #D8E9F8;
+  width: 200px;
+  height: 200px;
+  border-radius: 30px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.35);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-family: 'Shrikhand', regular;
+}
+
+.dpn-box h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.dpn-value {
+  font-size: 60px;
+}

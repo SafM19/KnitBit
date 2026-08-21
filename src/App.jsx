@@ -1,5 +1,5 @@
 import MainPage from "./pages/MainPage";
-import "@fontsource/just-another-hand";
+import "@fontsource/shrikhand";
 import "./App.css";
 
 function App() {

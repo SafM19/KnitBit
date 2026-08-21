@@ -1,0 +1,209 @@
+.new-project-image {
+  height: 0%;
+}
+
+/* =========================
+   SAVED PROJECT WRAPPER
+   ========================= */
+
+.saved-project-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+}
+
+
+/* =========================
+   THREE DOT BUTTON
+   ========================= */
+
+.project-menu-button {
+  position: absolute;
+
+  right: 20px;
+
+  border: none;
+  background: transparent;
+
+  color: #955820;
+
+  font-family: Arial, sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  z-index: 2;
+}
+
+.project-menu-button:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================
+   PROJECT MENU
+   ========================= */
+
+.project-menu {
+  position: absolute;
+
+  top: 100%;
+  right: 15px;
+
+  width: 260px;
+
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #d5c0bc;
+
+  border-radius: 15px;
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+
+  z-index: 20;
+}
+
+.project-menu button {
+  padding: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+  font-size: 20px;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.project-menu button:hover {
+  background: #c49670;
+}
+
+.project-menu .delete-option {
+  color: #9b3030;
+}
+
+
+/* =========================
+   EDIT PROJECT OVERLAY
+   ========================= */
+
+.edit-project-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  z-index: 50;
+}
+
+
+/* =========================
+   EDIT PROJECT MODAL
+   ========================= */
+
+.edit-project-modal {
+  width: 70%;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+
+  background: #d5c0bc;
+
+  border-radius: 25px;
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+}
+
+.edit-project-modal h3 {
+  margin: 0 0 25px;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+  font-size: 40px;
+}
+
+.edit-project-modal input,
+.edit-project-modal select {
+  width: 100%;
+  height: 80px;
+
+  box-sizing: border-box;
+
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 15px;
+
+  background: #c49670;
+
+  color: #a9662c;
+
+  font-family: "Shrikhand", regular;
+  font-size: 30px;
+
+  outline: none;
+}
+
+.edit-project-modal > div {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 30px;
+
+  margin-top: 25px;
+}
+
+.edit-project-modal button {
+  border: none;
+  background: transparent;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+  font-size: 30px;
+
+  cursor: pointer;
+}
+
+.edit-project-modal button:hover {
+  opacity: 0.7;
+}
+
+
+/* =========================
+   NO PROJECTS
+   ========================= */
+
+.no-projects {
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+  font-size: 30px;
+
+  text-align: center;
+}

@@ -8,29 +8,26 @@
 
   padding: 40px 20px;
 
-  background: #ffffff;
+  background: #FBEDE4;
 }
 
 .main-header {
   text-align: center;
 }
 
-.main-header h1 {
-  margin: 0;
-
+.main-page h2 {
+  font-size: 40px;
+  font-family: 'Shrikhand', regular;
   color: #3185bd;
-
-  font-family: "Comic Sans MS", cursive;
-  font-size: 3rem;
-  font-weight: 400;
+  font-weight: 300;
+  letter-spacing: 0%;
+  padding: 0%;
+  margin: 0%;
 }
 
-.main-header h2 {
-  font-size: 80px;
-  font-family: "Just Another Hand", cursive;
-  color: #8c5629;
-  font-weight: 400;
-  letter-spacing: 0%;
+.main-header img {
+  height: 225px;
+  width: 225px;
 }
 
 .new-project-button {
@@ -49,7 +46,6 @@
 
   color: #3185bd;
 
-  font-family: "Comic Sans MS", cursive;
   font-size: 2.5rem;
 
   cursor: pointer;
@@ -118,7 +114,7 @@
 
   color: #a9662c;
 
-  font-family: "Just Another Hand", cursive;
+  font-family: "Shrikhand", regular;
   font-size: 68px;
 
   text-align: center;
@@ -132,28 +128,18 @@
 }
 
 
-/* =========================
-   DPN / REGULAR BUTTONS
-   ========================= */
-
-.counter-type-buttons {
+.counter-type select {
   position: absolute;
 
-  top: 68%;
+  top: 30%;
   left: 50%;
 
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 75%);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 70%;
+  height: 145px;
 
-  gap: 100px;
-}
-
-.counter-type-buttons button {
-  width: 260px;
-  height: 180px;
+  box-sizing: border-box;
 
   border: none;
   border-radius: 25px;
@@ -162,19 +148,12 @@
 
   color: #a9662c;
 
-  font-family: "Just Another Hand", cursive;
-  font-size: 65px;
+  font-family: "Shrikhand", regular;
+  font-size: 68px;
 
-  cursor: pointer;
-}
+  text-align: center;
 
-.counter-type-buttons button:hover {
-  opacity: 0.8;
-}
-
-.counter-type-buttons button.selected {
-  background: #a9662c;
-  color: #d5c0bc;
+  outline: none;
 }
 
 
@@ -204,7 +183,7 @@
 
   color: #955820;
 
-  font-family: "Just Another Hand", cursive;
+  font-family: "Shrikhand", regular;
   font-size: 55px;
 
   cursor: pointer;
@@ -215,69 +194,129 @@
 }
 
 .saved-projects-modal {
-  width: min(420px, 80vw);
-  min-height: 350px;
+
+  position: relative;
+
+  z-index: 10000;
+
+  width: min(880px, calc(100vw - 40px));
+
+  height: min(1040px, calc(100vh - 40px));
 
   box-sizing: border-box;
-  padding: 40px;
+
+  padding: 60px;
 
   display: flex;
+
   flex-direction: column;
 
   background: #d5c0bc;
-  border-radius: 14px;
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+
 }
 
 .saved-projects-modal h2 {
-  margin: 0 0 30px;
 
-  color: #9a5d28;
+  margin: 0;
 
-  font-family: "Comic Sans MS", cursive;
-  font-size: 2rem;
-  font-weight: 400;
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+
+  font-size: 55px;
+
+  font-weight: 300;
+
   text-align: center;
+
 }
 
 .saved-project-list {
+
   display: flex;
+
   flex-direction: column;
-  gap: 15px;
+
+  gap: 25px;
+
+  margin-top: 60px;
+}
+
+.saved-project-list p {
+  font-family: "Shrikhand", regular;
+  font-size: 50px;
+  text-align: center;
 }
 
 .saved-project {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: 100%;
-  padding: 15px 20px;
-
+  min-height: 110px;
+  box-sizing: border-box;
+  padding: 20px 30px;
   border: none;
-  border-radius: 8px;
-
+  border-radius: 25px;
   background: #c49670;
-
-  color: #9a5d28;
-
-  font-family: "Comic Sans MS", cursive;
-  font-size: 1.2rem;
-
+  color: #a9662c;
+  font-family: "Shrikhand", regular;
+  font-size: 40px;
   cursor: pointer;
+
 }
 
 .saved-project:hover {
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
 .saved-project span:last-child {
-  font-size: 0.9rem;
+  font-size: 30px;
+  margin-right: 40px;
 }
 
 .saved-projects-modal .modal-actions {
-  margin-top: auto;
+
+  position: absolute;
+
+  right: 60px;
+
+  bottom: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 55px;
+
+  margin: 0;
+
+}
+
+.saved-projects-modal .modal-actions button {
+
+  border: none;
+
+  background: transparent;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+
+  font-size: 55px;
+
+  cursor: pointer;
+
+}
+
+.saved-projects-modal .modal-actions button:hover {
+
+  opacity: 0.7;
+
 }
 
 .new-project-button, .saved-projects-button {
@@ -290,8 +329,8 @@
 
 .new-project-button img{
   display: block;
-  width: min(450px, 80vw);
-  height: auto;
+  width: min(250px, 80vw);
+  height: 225px;
 }
 
 .new-project-button:hover {
@@ -301,8 +340,12 @@
 
 .saved-projects-button img{
   display: block;
-  width: min(475px, 80vw);
-  height: auto;
+  width: min(250px, 80vw);
+  height: 225px;
+}
+
+.options {
+  padding-top: 5%;
 }
 
 
@@ -310,4 +353,183 @@
 .saved-projects-button {
   position: relative;
   z-index: 1;
+}
+
+/* =========================
+   EDIT PROJECT OVERLAY
+   ========================= */
+
+.edit-project-overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.35);
+
+  z-index: 20000;
+}
+
+
+/* =========================
+   EDIT PROJECT MODAL
+   ========================= */
+
+.edit-project-modal {
+  position: relative;
+
+  width: min(650px, 80vw);
+
+  box-sizing: border-box;
+
+  padding: 50px;
+
+  background: #d5c0bc;
+
+  border-radius: 30px;
+
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.35);
+
+  text-align: center;
+}
+
+.edit-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+
+/* =========================
+   EDIT TITLE
+   ========================= */
+
+.edit-project-modal h3 {
+  margin: 0 0 30px;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+
+  font-size: 45px;
+
+  font-weight: 300;
+}
+
+
+/* =========================
+   EDIT INPUT / SELECT
+   ========================= */
+
+.edit-project-modal input,
+.edit-project-modal select {
+  width: 100%;
+
+  height: 90px;
+
+  box-sizing: border-box;
+
+  padding: 10px 25px;
+
+  border: none;
+
+  border-radius: 20px;
+
+  background: #c49670;
+
+  color: #a9662c;
+
+  font-family: "Shrikhand", regular;
+
+  font-size: 35px;
+
+  text-align: center;
+
+  outline: none;
+}
+
+
+/* =========================
+   EDIT BUTTONS
+   ========================= */
+
+.edit-project-modal > div {
+  display: flex;
+
+  justify-content: flex-end;
+
+  gap: 40px;
+
+  margin-top: 30px;
+}
+
+.edit-project-modal button {
+  border: none;
+
+  background: transparent;
+
+  color: #955820;
+
+  font-family: "Shrikhand", regular;
+
+  font-size: 35px;
+
+  cursor: pointer;
+}
+
+.edit-project-modal button:hover {
+  opacity: 0.7;
+}
+
+
+
+.saved-project-wrapper {
+  position: relative;
+}
+
+.project-menu {
+  position: absolute;
+  top: 0;
+  right: 50px;
+  background: rgb(213, 192, 188);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  z-index: 30000; /* above everything */
+}
+
+.target-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.target-controls input {
+  width: 80px;
+  height: 60px;
+  font-size: 40px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+}
+
+.target-controls button {
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.project-header {
+  text-align: center;
 }

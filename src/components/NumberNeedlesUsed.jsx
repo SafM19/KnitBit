@@ -1,7 +1,4 @@
-function NumberNeedlesUsed({
-  numberNeedlesUsed,
-  setProject,
-}) {
+function NumberNeedlesUsed({ numberNeedlesUsed, setNumberNeedlesUsed }) {
   function handleChange(event) {
     const value = Number(event.target.value);
 
@@ -12,18 +9,19 @@ function NumberNeedlesUsed({
     }));
   }
 
+  
   return (
     <div className="number-needles">
-      <h2>Number of DPNs</h2>
 
       <select
         value={numberNeedlesUsed}
-        onChange={handleChange}
-      >
-        <option value="0">Select</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
+        onChange={(e) => setNumberNeedlesUsed(Number(e.target.value))}
+        >
+        <option value={0}>Select needles</option>
+        <option value={4}>4 needles</option>
+        <option value={5}>5 needles</option>
+        </select>
+
     </div>
   );
 }
